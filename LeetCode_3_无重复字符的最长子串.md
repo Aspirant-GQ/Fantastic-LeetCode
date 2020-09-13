@@ -3,7 +3,7 @@
 ## 题目
 
 >给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度
-![在这里插入图片描述](../../../%E8%BD%AF%E4%BB%B6%E7%AE%A1%E5%AE%B6/Typora/%E5%9B%BE%E7%89%87%E5%BA%93/20200726164806593.png)
+![hh](https://img-blog.csdnimg.cn/20200726164806593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQzNzYy,size_16,color_FFFFFF,t_70)
 
 ## 思路一：暴力法
 
@@ -52,7 +52,7 @@ int lengthOfLongestSubstring(char * s)
 ```
 
 但是会遇到提交错误如下：
-![在这里插入图片描述](../../../%E8%BD%AF%E4%BB%B6%E7%AE%A1%E5%AE%B6/Typora/%E5%9B%BE%E7%89%87%E5%BA%93/20200726180448276.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200726180448276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQzNzYy,size_16,color_FFFFFF,t_70)
 原因是：我判断重复之后，是直接以当前重复的字符为起点来进行计数的，实际中遇到`"dvdf"`这种情况，就会误判为最长为`"df"`，没有从第一个重复的字符处重新判断！！！
 
 ### 第二次
@@ -100,7 +100,7 @@ int lengthOfLongestSubstring(char * s)
 ```
 
 然鹅，又出错了。。。
-![在这里插入图片描述](../../../%E8%BD%AF%E4%BB%B6%E7%AE%A1%E5%AE%B6/Typora/%E5%9B%BE%E7%89%87%E5%BA%93/20200726224753220.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200726224753220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQzNzYy,size_16,color_FFFFFF,t_70)
 
 ### 第三次
 
@@ -150,7 +150,7 @@ int lengthOfLongestSubstring(char * s)
 
 实际上就是加了一行代码：`if( *(s+i)!=*(s+last-1) ) count++;`，用来判断当前重复字符是否是前一个重复的字符，如果不同则可以计数。
 结果显而易见，又错了。。。
-![在这里插入图片描述](../../../%E8%BD%AF%E4%BB%B6%E7%AE%A1%E5%AE%B6/Typora/%E5%9B%BE%E7%89%87%E5%BA%93/20200727104307289.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200727104307289.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQzNzYy,size_16,color_FFFFFF,t_70)
 幸运的是，每一次改代码，都是在不断通过新的测试用例。
 
 ### 第四次
@@ -242,9 +242,9 @@ int lengthOfLongestSubstring(char * s)
 ```
 
 执行结果：
-![1598863307625](../../../%E8%BD%AF%E4%BB%B6%E7%AE%A1%E5%AE%B6/Typora/%E5%9B%BE%E7%89%87%E5%BA%93/1598863307625.png)
+![1598863307625](https://img-blog.csdnimg.cn/20200831164619263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQzNzYy,size_16,color_FFFFFF,t_70#pic_center)
 
-![1598863318915](../../../%E8%BD%AF%E4%BB%B6%E7%AE%A1%E5%AE%B6/Typora/%E5%9B%BE%E7%89%87%E5%BA%93/1598863318915.png)
+
 
 （PS：为什么相同的代码，提交多次会有不一样的结果？）
 
